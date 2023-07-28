@@ -1,6 +1,8 @@
 body{
     background-color: rgb(247, 243, 238);
-    
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 .card{
     width: 600px;
@@ -51,4 +53,17 @@ body{
 button{
     width: 130px;
     height: 35px;
+}
+
+.footer{
+    margin-top: auto;
+ 
+}
+.foo{
+    display: flex;
+    justify-content: center;
+}
+#aaa{
+    display: flex;
+    justify-content: center;
 }
