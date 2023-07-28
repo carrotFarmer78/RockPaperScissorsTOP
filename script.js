@@ -41,11 +41,11 @@ function round(playerChoice){
     || playerChoice == "Rock" && compChoice == "Sci"
     || playerChoice == "Paper" && compChoice == "Rock"){
     playerPoints += 1;
-    content.textContent = "You´ve won"
+    content.textContent = "🎉You´ve won🎉"
     }
     else{
     computerPoints += 1;
-    content.textContent = "You´ve lost"
+    content.textContent = "❌You´ve lost❌"
     }
     container.appendChild(content);
     refreshScore()

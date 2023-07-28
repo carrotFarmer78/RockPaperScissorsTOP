@@ -72,3 +72,15 @@ i:hover {
   a:link, i {
   color: black;
 }
+.links{
+    display: flex;
+    align-items:center ;
+    justify-content: space-evenly;
+    gap: 40px;
+}
+.q{
+    font-weight: 999 ;
+}
+.a{
+    margin-bottom: 25px;
+}
