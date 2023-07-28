@@ -4,54 +4,57 @@ function getComputerChoice(){
         return "Rock"
     }
     else if(choice >= 0.66){
-        return "Scissors"
+        return "Sci"
     }
     else{
         return "Paper"
     }
 }
 
-function playRound(playerSelection, computerSelection){
-    if(playerSelection == computerSelection){
-        return ("Its a draw, you both chose " + playerSelection)
-    }
-    if(playerSelection == "Rock" && computerSelection == "Scissors" || 
-       playerSelection == "Paper" && computerSelection == "Rock" ||
-       playerSelection == "Scissors" && computerSelection == "Paper"){
+let playerPoints = 0;
+let computerPoints = 0;
 
-        return ("You won, the computer chose " + computerSelection)
-       }
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const sci = document.querySelector("#scissors");
+rock.addEventListener("click", () => {
+    round("Rock")
+});
+paper.addEventListener("click", () => {
+    round("Paper")
+})
+sci.addEventListener("click", () => {
+    round("Sci")
+})
+
+function round(playerChoice){
+    const compChoice = getComputerChoice();
+    const container = document.querySelector(".results");
+    const content = document.createElement("div")
+    content.classList.add("content");
+    while (container.firstChild) {
+        container.removeChild(container.lastChild);
+      }
+    
+
+    if(playerChoice == "Sci" && compChoice == "Paper"
+    || playerChoice == "Rock" && compChoice == "Sci"
+    || playerChoice == "Paper" && compChoice == "Rock"){
+    playerPoints += 1;
+    content.textContent = "You´ve won"
+    }
     else{
-        return ("You lost, the computer chose " + computerSelection)
+    computerPoints += 1;
+    content.textContent = "You´ve lost"
     }
+    container.appendChild(content);
+    refreshScore()
 }
 
-function game(){
-    let compCount = 0
-    let playerCount = 0
-    let round = 1
+function refreshScore(){
+    const yourCont = document.querySelector("#yourPoints")
+    const compCont = document.querySelector("#pcPoints")
 
-
-    while(playerCount <= 3 || compCount <= 3){
-        let str = playRound("Rock", getComputerChoice())
-        if(str.charAt(4) == 'w'){
-            playerCount += 1
-        }
-        else if(str.charAt(4) == 'l'){
-            compCount += 1
-        }
-        console.log("Round " +round+ " " +str)
-        round += 1
-
-        if(compCount == 3){
-            return "Computer won"
-        }
-        if(playerCount == 3){
-            return "You won"
-        }
-
-    }
-    return compCount
+    yourCont.innerHTML = "Your points: " + playerPoints
+    compCont.innerHTML = "Computer points: " + computerPoints
 }
-
-console.log(game())
