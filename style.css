@@ -54,16 +54,21 @@ button{
     width: 130px;
     height: 35px;
 }
-
 .footer{
+    display: flex;
+    flex-direction: column;
     margin-top: auto;
- 
+    align-items: center;
+    background-color: rgb(231, 227, 222);;
 }
-.foo{
-    display: flex;
-    justify-content: center;
+p{
+    margin: 0px;
 }
-#aaa{
-    display: flex;
-    justify-content: center;
+i:hover {
+    color: #AEC6CF;
+    transition: 0.4s;
+    cursor: pointer;
+  }
+  a:link, i {
+  color: black;
 }
